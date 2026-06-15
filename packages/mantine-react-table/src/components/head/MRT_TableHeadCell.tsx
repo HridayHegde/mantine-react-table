@@ -5,7 +5,6 @@ import classes from './MRT_TableHeadCell.module.css';
 import {
   type CSSProperties,
   type DragEventHandler,
-  type MutableRefObject,
   type ReactNode,
   useMemo,
   useState,
@@ -205,11 +204,9 @@ export const MRT_TableHeadCell = <TData extends MRT_RowData>({
       )}
       onDragEnter={handleDragEnter}
       ref={(node: HTMLTableCellElement) => {
+        isHoveredHeadCellRef(node);
         if (node) {
           tableHeadCellRefs.current[column.id] = node;
-          (
-            isHoveredHeadCellRef as MutableRefObject<HTMLTableCellElement>
-          ).current = node;
           if (columnDefType !== 'group') {
             columnVirtualizer?.measureElement?.(node);
           }

@@ -24,7 +24,8 @@
     "start": "turbo run start --parallel",
     "storybook": "turbo run storybook",
     "storybook:build": "turbo run storybook:build",
-    "storybook:dev": "turbo run storybook"
+    "storybook:dev": "turbo run storybook",
+    "test": "pnpm --filter mantine-react-table test"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

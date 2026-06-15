@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { InstallCommand } from '../../../components/mdx/InstallCommand';
+import { InstallCommand } from '../components/mdx/InstallCommand';
 
 <Head>
   <title>{'Migrating to Mantine React Table V2 - Mantine React Table Docs'}</title>
@@ -8,11 +8,11 @@ import { InstallCommand } from '../../../components/mdx/InstallCommand';
 
 ## Migrating to Mantine React Table V2 from V1
 
-Mantine React Table V2 is a major upgrade that aligns with Mantine V7 and introduces improved styling, modular architecture, and better developer ergonomics. While the core API remains familiar, there are several breaking changes and setup updates to be aware of.
+Mantine React Table V2 is a major upgrade that aligns with Mantine V8 and introduces improved styling, modular architecture, and better developer ergonomics. While the core API remains familiar, there are several breaking changes and setup updates to be aware of.
 
 ### New Feature Highlights
 
-1. Compatible with Mantine V7.17.7+ with improved styling and performance  
+1. Compatible with Mantine V8.3.9+ with improved styling and performance  
 2. All internal MRT components are now exported for custom table composition  
 3. Emotion dependency removed in favor of Mantine’s native styling system  
 4. `sx` prop renamed to `style` for inline styling consistency  
@@ -21,9 +21,9 @@ Mantine React Table V2 is a major upgrade that aligns with Mantine V7 and introd
 
 ### Upgrade Dependencies
 
-#### 1. Upgrade Mantine to V7
+#### 1. Upgrade Mantine to V8
 
-Before upgrading Mantine React Table, you need to upgrade Mantine to V7.17.7+. Follow the [Mantine V7installation guide for framework-specific instructions.
+Before upgrading Mantine React Table, you need to upgrade Mantine to V8.3.9+. Follow the [Mantine installation guide](https://mantine.dev/getting-started/) for framework-specific instructions.
 
 You can get started by running the following command to set the mui-related dependencies to the latest versions in your `package.json`. This will not perform the full install yet.
 
@@ -32,7 +32,7 @@ npx npm-check-updates -u mantine-react-table @mantine/core @mantine/hooks @manti
 ```
 And then perform the actual install (downloading the new versions):
 
-<InstallCommand packagesString="@mantine/core @mantine/hooks @mantine/dates @tabler/icons-react clsx dayjs" />
+<InstallCommand packagesString="@mantine/core@^8.3.9 @mantine/hooks@^8.3.9 @mantine/dates@^8.3.9 @tabler/icons-react clsx dayjs" />
 
 #### 2. Upgrade Mantine React Table to V2
 
@@ -52,13 +52,13 @@ import 'mantine-react-table/styles.css';
 
 ### Breaking Changes
 
-- Mantine v6 is no longer supported. MRT now requires Mantine v7+ for full compatibility.
+- Mantine v6 and v7 are no longer supported. MRT now requires Mantine v8.3.9+ for full compatibility.
 - Emotion has been removed. MRT no longer relies on Emotion for styling. All styling is now handled via native Mantine styles.
 - sx prop renamed to style. To align with Mantine conventions, the sx prop has been deprecated. Please use the standard style prop going forward.
 
 #### Install PostCSS dev dependencies (Optional)
 
-If you are using Mantine V7, it is common to use CSS modules for advanced custom styling. You may want to install and configure PostCSS like down below, but it is not required if you are using a different styling solution.
+If you are using Mantine V8, it is common to use CSS modules for advanced custom styling. You may want to install and configure PostCSS like down below, but it is not required if you are using a different styling solution.
 
 <InstallCommand packagesString="-D postcss postcss-preset-mantine postcss-simple-vars" />
 <br />

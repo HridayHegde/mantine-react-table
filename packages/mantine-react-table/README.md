@@ -29,7 +29,7 @@ V1 released July 18, 2023
 
 ### _Quickly Create React Data Tables with Mantine_
 
-### __Built with [Mantine <sup>V7</sup>](https://mantine.dev/) and [TanStack Table <sup>V8</sup>](https://tanstack.com/table/v8)__
+### __Built with [Mantine <sup>V8</sup>](https://mantine.dev/) and [TanStack Table <sup>V8</sup>](https://tanstack.com/table/v8)__
 
 <img src="https://mantine-react-table.com/banner.png" alt="MRT" height="50"/>
 
@@ -102,10 +102,10 @@ View the full [Installation Docs](https://www.mantine-react-table.com/docs/getti
 
 1. Ensure that you have React 17 or later installed
 
-2. Install Peer Dependencies (Mantine V6 and Tabler Icons)
+2. Install Peer Dependencies (Mantine V8.3.9+ and Tabler Icons)
 
 ```bash
-npm install @mantine/core @mantine/hooks @mantine/dates @emotion/react @tabler/icons-react dayjs
+npm install @mantine/core@^8.3.9 @mantine/hooks@^8.3.9 @mantine/dates@^8.3.9 @tabler/icons-react dayjs
 ```
 
 3. Install mantine-react-table

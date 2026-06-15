@@ -1,10 +1,13 @@
-import pkg from './package.json' assert { type: 'json' };
+import { readFileSync } from 'node:fs';
+
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
 
 export default [
   {

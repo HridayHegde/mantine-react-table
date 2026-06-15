@@ -3,7 +3,6 @@ import { MantineReactTable, type MRT_ColumnDef } from '../../src';
 import { faker } from '@faker-js/faker';
 import { type Meta } from '@storybook/react';
 import { IconCopy, IconDownload } from '@tabler/icons-react';
-import { useContextMenu } from 'mantine-contextmenu';
 
 const meta: Meta = {
   title: 'Features/Cell Action Examples',
@@ -51,27 +50,27 @@ const data: Row[] = [...Array(100)].map(() => ({
 }));
 
 export const CellContextMenu = () => {
-  const { showContextMenu } = useContextMenu();
-
   return (
     <MantineReactTable
       columns={columns}
       data={data}
       mantineTableBodyCellProps={({ cell }) => ({
-        onContextMenu: showContextMenu([
-          {
-            icon: <IconCopy size={16} />,
-            key: 'copy',
-            onClick: () => cell.getValue(),
-            title: 'Copy to clipboard',
-          },
-          {
-            icon: <IconDownload size={16} />,
-            key: 'download',
-            onClick: () => null,
-            title: 'Download to your device',
-          },
-        ]),
+        onContextMenu: (event) => {
+          event.preventDefault();
+          console.log('Context menu actions', [
+            {
+              icon: <IconCopy size={16} />,
+              key: 'copy',
+              title: 'Copy to clipboard',
+              value: cell.getValue(),
+            },
+            {
+              icon: <IconDownload size={16} />,
+              key: 'download',
+              title: 'Download to your device',
+            },
+          ]);
+        },
         style: {
           cursor: 'context-menu',
         },

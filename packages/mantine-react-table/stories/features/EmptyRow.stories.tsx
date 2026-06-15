@@ -10,7 +10,6 @@ import {
 } from '../../src';
 
 import { type Meta } from '@storybook/react';
-import { useContextMenu } from 'mantine-contextmenu';
 
 const meta: Meta = {
   title: 'Features/Empty Row Examples',
@@ -69,22 +68,22 @@ export const CustomEmptyRow = () => {
 export const EmptyRowContextMenu = () => {
   //Now that empty row is an actual row, same context menu can be used, that is used on actual row data
 
-  const { showContextMenu } = useContextMenu();
   const table = useMantineReactTable({
     columns,
     data,
     mantineTableBodyRowProps: {
-      onContextMenu: showContextMenu([
-        {
-          key: 'add',
-          onClick: () => console.log('Insert new row'),
-          title: 'Insert new row',
-        },
-        {
-          key: 'download',
-          onClick: () => console.log('download'),
-        },
-      ]),
+      onContextMenu: (event) => {
+        event.preventDefault();
+        console.log('Empty row context menu actions', [
+          {
+            key: 'add',
+            title: 'Insert new row',
+          },
+          {
+            key: 'download',
+          },
+        ]);
+      },
     },
   });
 
